@@ -1,19 +1,20 @@
-
 import './App.css';
-import Header from './Component/header.js'
-import Navbar from './Component/Navbar.js'
-import ImageSlider from './Component/ImageSlider.js'
+import Banner from './components/Banner'
+import Navbar from './components/Navbar'
+import ImageSlider from './components/ImageSlider'
+
 function App() {
-  
+
   return (
-   
-          <div className="App">
-            <Header />
-            <Navbar />
-            <ImageSlider />
-          </div>
-          
-     
+
+    <div className="App">
+      <Banner />
+      <Navbar />
+      <ImageSlider />
+
+    </div>
+
+
   );
 }
 

@@ -1,0 +1,23 @@
+
+
+.banner-container{
+    max-width: 100%;
+    background: linear-gradient(rgb(168, 185, 233), blue)
+}
+
+.banner{
+    /* height: 100px; */
+    padding: 10px 10px;
+    overflow: hidden;
+}
+
+.banner-logo{
+    object-fit: cover;
+    height: 100px;  /* HEIGHT OF MNIT logo*/
+}
+
+.banner-name{
+    text-align: right;
+    /* font-weight: bold; */
+}
+

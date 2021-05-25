@@ -1,36 +1,64 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
-function TNav() {
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBContainer, MDBMask, MDBView } from 'mdbreact';
+import "../App.css";
+import { BrowserRouter as Router } from 'react-router-dom';
+  
+class FullPageIntroWithFixedTransparentNavbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapse: false,
+      isWideEnough: false,
+    };
+    this.onClick = this.onClick.bind(this);
+  }
 
-  return (
-    <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </>
+  onClick() {
+    this.setState({
+      collapse: !this.state.collapse,
+    });
+  }
 
-  )
+  render() {
+    return (
+      <div>
+        <header>
+        <Router>
+            <MDBNavbar color="bg-primary" fixed="top" dark expand="md" scrolling transparent>
+            <MDBContainer fluid>
+              <MDBNavbarBrand href="/">
+                <strong>Rachit Gupta</strong>
+              </MDBNavbarBrand>
+              
+              {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
+              <MDBCollapse  isOpen={this.state.collapse} navbar>
+                <MDBNavbarNav left>
+                <MDBNavItem active>
+                <a aria-current="page" class="nav-link Ripple-parent active" data-test="nav-link" href="#home">Home<div data-test="waves" class="Ripple is-reppling" ></div></a>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                  <a aria-current="page" class="nav-link Ripple-parent active" data-test="nav-link" href="#about">About<div data-test="waves" class="Ripple is-reppling" ></div></a>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                  <a aria-current="page" class="nav-link Ripple-parent active" data-test="nav-link" href="#intersets">Interests<div data-test="waves" class="Ripple is-reppling" ></div></a>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                  <a aria-current="page" class="nav-link Ripple-parent active" data-test="nav-link" href="#resume">Resume<div data-test="waves" class="Ripple is-reppling" ></div></a>
+                  </MDBNavItem>
+                </MDBNavbarNav>
+              </MDBCollapse>
+              
+              </MDBContainer>
+            </MDBNavbar>
+            </Router>
+            </header>
+            </div>
+    );
+  }
 }
-
-export default TNav
-
+  export default FullPageIntroWithFixedTransparentNavbar;

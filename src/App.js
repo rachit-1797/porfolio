@@ -1,18 +1,45 @@
 import './App.css';
-import Banner from './components/Banner'
+
 import Navbar from './components/Navbar'
-import ImageSlider from './components/ImageSlider'
+import Home from './components/home'
+import Resume from './components/resume'
+import About from './components/about'
+import Interests from'./components/interests'
+
 
 function App() {
 
   return (
-
-    <div className="App">
-      <Banner />
-      <Navbar />
-      <ImageSlider />
-
-    </div>
+    <div>
+            <Navbar/>
+            <Home />
+            
+            <About />
+        
+            <Interests />
+        
+            <Resume />
+      
+ 
+    
+     
+     
+        
+          
+          
+           
+               
+            
+         
+         
+       
+      
+   
+     </div>
+     
+     
+      
+    
 
 
   );
